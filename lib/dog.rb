@@ -67,4 +67,8 @@ class Dog
     end
     self
   end
+  
+  def create(dog_attributes)
+    
+  end 
 end
