@@ -69,6 +69,6 @@ class Dog
   end
   
   def create(dog_attributes)
-    
+    new_dog = Dog.new(dog_attributes)
   end 
 end
