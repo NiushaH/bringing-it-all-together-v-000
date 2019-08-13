@@ -65,5 +65,6 @@ class Dog
     else
       update      
     end
+    self
   end
 end
