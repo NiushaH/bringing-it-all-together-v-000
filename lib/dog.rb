@@ -54,7 +54,14 @@ class Dog
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
     if 
       dog.empty?
-      INSERT
+      sql = <<-SQL
+        INSERT INTO dogs (name, breed) 
+        VALUES (?, ?)
+      SQL
+
+      DB[:conn].execute(sql, self.name, self.breed)
+
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
     else
       update      
     end
