@@ -45,23 +45,18 @@ class Dog
   #   SELECT * FROM dog WHERE name = ?
   # end 
 
-  def update
-    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
-    DB[:conn].execute(sql, self.name, self.breed, self.id)
-  end 
+  # def update
+    
+  # end 
   
   def save
-    if self.id
-      self.update
+    dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
+    if 
+      dog.empty?
+      INSERT
     else
-      sql = <<-SQL
-        INSERT INTO dogs (name, breed) 
-        VALUES (?, ?)
-      SQL
-
-      DB[:conn].execute(sql, self.name, self.breed)
-
-      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
+      found to exist
+      UPDATE      
     end
   end
 end
