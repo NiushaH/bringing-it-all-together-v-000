@@ -72,7 +72,6 @@ class Dog
       :breed => row[2]
     }
     new_dog = self.new(attributes_hash)
-    new_dog
   end
 
   # def self.find_by_name(name)
