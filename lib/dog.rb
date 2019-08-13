@@ -55,7 +55,6 @@ class Dog
       dog.empty?
       INSERT
     else
-      found to exist
       UPDATE      
     end
   end
