@@ -69,7 +69,7 @@ class Dog
     name =  row[1]
     breed = row[2]
     id = row[0]
-    dog = self.new
+    dog = self.new(name, breed)
     dog
   end
 
