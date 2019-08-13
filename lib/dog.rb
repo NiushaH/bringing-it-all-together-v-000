@@ -45,9 +45,9 @@ class Dog
   #   SELECT * FROM dog WHERE name = ?
   # end 
 
-  # def update
+  def update
     
-  # end 
+  end 
   
   def save
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
@@ -55,7 +55,7 @@ class Dog
       dog.empty?
       INSERT
     else
-      UPDATE      
+      update      
     end
   end
 end
